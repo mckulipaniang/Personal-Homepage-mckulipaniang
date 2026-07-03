@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft苦力怕娘 · 个人主页</title>
+    <style>
+        /* ====== 全局重置 ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        /* ====== 主卡片 ====== */
+        .container {
+            max-width: 680px;
+            width: 100%;
+            background: #161b22;
+            border-radius: 28px;
+            padding: 44px 36px;
+            border: 1px solid #30363d;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        /* ====== 头像 ====== */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            overflow: hidden;
+            border: 3px solid #7cb342;
+            flex-shrink: 0;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ====== 标题 ====== */
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 17px;
+            color: #8b949e;
+            margin-bottom: 24px;
+        }
+
+        .subtitle span {
+            color: #7cb342;
+            font-weight: 600;
+        }
+
+        /* ====== 介绍文字 ====== */
+        .intro {
+            background: #0d1117;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 26px;
+            border-left: 4px solid #7cb342;
+            font-size: 15px;
+            line-height: 1.9;
+            text-align: left;
+            color: #c9d1d9;
+        }
+
+        /* ====== 玩家代号卡片 ====== */
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 14px;
+            text-align: left;
+        }
+
+        .code-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .code-card {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 14px;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            transition: 0.2s;
+        }
+
+        .code-card:hover {
+            border-color: #7cb342;
+        }
+
+        .code-card .label {
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .code-card .value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f0f6fc;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+        }
+
+        .code-card .badge {
+            font-size: 12px;
+            background: #1c2333;
+            color: #7cb342;
+            padding: 2px 14px;
+            border-radius: 40px;
+            border: 1px solid #21262d;
+        }
+
+        /* ====== B站冲刺区 ====== */
+        .goal-box {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .goal-box .big-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #f0883e;
+            letter-spacing: 1px;
+        }
+
+        .goal-box .goal-text {
+            font-size: 15px;
+            color: #c9d1d9;
+            margin-top: 4px;
+        }
+
+        .goal-box .goal-text span {
+            color: #f0883e;
+            font-weight: 600;
+        }
+
+        /* ====== 链接按钮 ====== */
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .links a {
+            background: #21262d;
+            color: #58a6ff;
+            padding: 10px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1px solid #30363d;
+            transition: 0.2s;
+        }
+
+        .links a:hover {
+            background: #30363d;
+            border-color: #7cb342;
+        }
+
+        /* ====== 底部 ====== */
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #484f58;
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid #21262d;
+        }
+
+        /* ============================================================
+                  📱 手机适配
+                 ============================================================ */
+        @media (max-width: 600px) {
+            .container {
+                padding: 28px 18px;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .intro {
+                font-size: 14px;
+                padding: 14px 16px;
+            }
+
+            .code-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .code-card .value {
+                font-size: 16px;
+            }
+
+            .goal-box .big-number {
+                font-size: 28px;
+            }
+
+            .links a {
+                padding: 8px 18px;
+                font-size: 14px;
+                flex: 1 1 auto;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 20px 14px;
+            }
+
+            .avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            h1 {
+                font-size: 19px;
+            }
+
+            .goal-box .big-number {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== 头像 ===== -->
+        <div class="avatar">
+            <img src="mckulipaniang.jpg" alt="头像">
+        </div>
+
+        <!-- ===== 标题 ===== -->
+        <h1>Minecraft苦力怕娘</h1>
+        <div class="subtitle">MC玩家 · B站UP主</div>
+
+        <!-- ===== 介绍 ===== -->
+        <div class="intro">
+            <strong>你好！</strong><br>
+            我是一名 <span style="color: #7cb342; font-weight: 600;">Minecraft</span> 玩家，也是 B站 的 UP主。<br>
+            平时喜欢在方块世界里搞事情，也在努力做视频分享快乐！
+        </div>
+
+        <!-- ===== 玩家代号 ===== -->
+        <div class="section-title">我的玩家代号</div>
+        <div class="code-cards">
+            <div class="code-card">
+                <span class="label">玩家代号 ①</span>
+                <span class="value">BrushyCase15280</span>
+                <span class="badge">常用</span>
+            </div>
+            <div class="code-card">
+                <span class="label">玩家代号 ②</span>
+                <span class="value">mckulipaniang</span>
+                <span class="badge">备用</span>
+            </div>
+        </div>
+
+        <!-- ===== B站冲刺 ===== -->
+        <div class="goal-box">
+            <div class="big-number">100,000</div>
+            <div class="goal-text">
+                正在冲刺 <span>10万</span> 粉丝 · 希望得到你的关注 ❤️
+            </div>
+        </div>
+
+        <!-- ===== 链接 ===== -->
+        <div class="links">
+            <a href="https://space.bilibili.com/3546845355706427" target="_blank">📺 关注B站</a>
+            <a href="https://github.com/mckulipaniang" target="_blank">🐙 GitHub</a>
+        </div>
+
+        <!-- ===== 底部 ===== -->
+        <div class="footer">
+            © 2026 · 本页面归 Minecraft苦力怕娘 所有
+        </div>
+
+    </div>
+
+</body>
+</html>
